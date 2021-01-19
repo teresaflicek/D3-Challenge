@@ -71,6 +71,25 @@ d3.csv("assets/data/data.csv").then(function(dataCSV) {
     .attr("fill", "lightblue")
     .attr("opacity", ".5");
 
+    // append x axis label
+  //   chartGroup.append("text")
+  //   .attr("x", 0)
+  //   .attr("y", 40)
+  //   .attr("value", "num_albums") // value to grab for event listener
+  //   .classed("inactive", true)
+  //   .text("# of Albums Released");
+
+  // // append y axis
+  // chartGroup.append("text")
+  //   .attr("transform", "rotate(-90)")
+  //   .attr("y", 0 - margin.left)
+  //   .attr("x", 0 - (height / 2))
+  //   .attr("dy", "1em")
+  //   .classed("axis-text", true)
+  //   .text("Number of Billboard 500 Hits");
+
+
+
     // state abbreviations
 
     // <text dx="427.16279069767444" dy="242.570281124498" r="20" fill="lightblue" opacity="1">SampleText</text>
