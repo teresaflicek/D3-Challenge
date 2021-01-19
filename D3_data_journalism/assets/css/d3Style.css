@@ -52,6 +52,10 @@
   border-radius: 4px;
 }
 
+.text{
+  color:rgba(0, 0, 0, 0.8)
+}
+
 /* Mobile Rules */
 @media screen and (max-width: 530px) {
   .stateText {

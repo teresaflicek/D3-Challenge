@@ -72,12 +72,12 @@ d3.csv("assets/data/data.csv").then(function(dataCSV) {
     .attr("opacity", ".5");
 
     // append x axis label
-  //   chartGroup.append("text")
-  //   .attr("x", 0)
-  //   .attr("y", 40)
-  //   .attr("value", "num_albums") // value to grab for event listener
-  //   .classed("inactive", true)
-  //   .text("# of Albums Released");
+    chartGroup.append("text")
+    .attr("x", 400)
+    .attr("y", 450)
+    // .attr("value", "num_albums") // value to grab for event listener
+    .classed("inactive", true)
+    .text("In Poverty %");
 
   // // append y axis
   // chartGroup.append("text")
