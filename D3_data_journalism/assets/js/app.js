@@ -79,7 +79,7 @@ d3.csv("assets/data/data.csv").then(function(dataCSV) {
     .classed("axis-text", true)
     .text("In Poverty %");
 
-    // // append y axis
+    // append y axis
     chartGroup.append("text")
     .attr("transform", "rotate(-90)")
     .attr("y", 0 - margin.left)
@@ -88,11 +88,21 @@ d3.csv("assets/data/data.csv").then(function(dataCSV) {
     .classed("axis-text", true)
     .text("Lacks Healthcare %");
 
-
-
     // state abbreviations
+    circlesGroup.selectAll("text")
+    .data(dataCSV)
+    .enter()
+    .append("text")
+    .attr("dx", d => xLinearScale(d.poverty))
+    .attr("dy", d => yLinearScale(d.healthcare))
+    .attr("r", 20)
+    .attr("fill", "lightblue")
+    .attr("opacity", ".5")
+    .text();
+
 
     // <text dx="427.16279069767444" dy="242.570281124498" r="20" fill="lightblue" opacity="1">SampleText</text>
 
 
-})
+
+});
