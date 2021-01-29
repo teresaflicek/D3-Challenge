@@ -1,12 +1,12 @@
 // select SVG element
-var svgWidth = 960;
-var svgHeight = 500;
+var svgWidth = 1000;
+var svgHeight = 650;
 
 var margin = {
   top: 20,
   right: 40,
-  bottom: 80,
-  left: 100
+  bottom: 60,
+  left: 60
 };
 
 var width = svgWidth - margin.left - margin.right;
@@ -24,7 +24,7 @@ var svg = d3
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-// initial Params
+// initial params
 var XAxis = "poverty";
 var Yaxis = "healthcare";
 
@@ -35,17 +35,16 @@ d3.csv("assets/data/data.csv").then(function (dataCSV) {
   dataCSV.forEach(function (data) {
     data.healthcare = +data.healthcare
     data.poverty = +data.poverty
-    data.abbr = +data.abbr
   });
 
   // create y scale function
   var yLinearScale = d3.scaleLinear()
-    .domain([0, d3.max(dataCSV, d => d.healthcare)])
+    .domain([2.5, d3.max(dataCSV, d => d.healthcare)])
     .range([height, 0]);
 
   // create x scale function
   var xLinearScale = d3.scaleLinear()
-    .domain([0, d3.max(dataCSV, d => d.poverty)])
+    .domain([8.75, d3.max(dataCSV, d => d.poverty)])
     .range([0, width]);
 
   // create initial axis functions
@@ -71,11 +70,26 @@ d3.csv("assets/data/data.csv").then(function (dataCSV) {
     .attr("cy", d => yLinearScale(d.healthcare))
     .attr("r", 15)
     .classed("stateCircle", true)
-    // .attr("fill", "lightblue")
-    .attr("opacity", ".5");
+    .attr("opacity", ".8");
+
+  // append x axis label
+  chartGroup.append("text")
+    .attr("x", 400)
+    .attr("y", 610)
+    .classed("aText", true)
+    .text("In Poverty %");
+
+  // append y axis label
+  chartGroup.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left)
+    .attr("x", 0 - (height / 2))
+    .attr("dy", "1em")
+    .classed("aText", true)
+    .text("Lacks Healthcare %");
 
   // state abbreviations
-  var circlesLabels = chartGroup.selectAll("text")
+  var circlesLabels = chartGroup.selectAll(null)
     .data(dataCSV)
     .enter()
     .append("text")
@@ -83,31 +97,6 @@ d3.csv("assets/data/data.csv").then(function (dataCSV) {
     .attr("dx", d => xLinearScale(d.poverty))
     .attr("dy", d => yLinearScale(d.healthcare))
     .classed("stateText", true)
-
-  // append x axis label
-  chartGroup.append("text")
-    .attr("x", 400)
-    .attr("y", 450)
-    .classed("axis-text", true)
-    .text("In Poverty %");
-
-  // append y axis
-  chartGroup.append("text")
-    .attr("transform", "rotate(-90)")
-    .attr("y", 0 - margin.left)
-    .attr("x", 0 - (height / 2))
-    .attr("dy", "1em")
-    .classed("axis-text", true)
-    .text("Lacks Healthcare %");
-
-
-
-
-
-
-
-  // <text dx="427.16279069767444" dy="242.570281124498" r="20" fill="lightblue" opacity="1">SampleText</text>
-
-
+    .attr("alignment-baseline", "central")
 
 });
