@@ -9,4 +9,4 @@ The editor wants to run a series of feature stories about the health risks facin
 The data set included with the assignment is based on 2014 ACS 1-year estimates from the US Census Bureau. The current data set includes data on rates of income, obesity, poverty, etc. by state. MOE stands for "margin of error."
 
 ## Preview of Scatter Plot
-![scatter plot displaying correlation between healthcare and poverty](image.png)
+![scatter plot displaying correlation between healthcare and poverty](D3_data_journalism/previewimage/d3scatterplot.png)
