@@ -89,29 +89,14 @@ d3.csv("assets/data/data.csv").then(function(dataCSV) {
     .text("Lacks Healthcare %");
 
     // state abbreviations
-    var texts = svg.selectAll(null)
-    .data(data)
+    circlesGroup.append("g")
+    .selectAll("text")
+    .data(dataCSV)
     .enter()
-    .append('text')
+    .append("text")
     .text(d => d.abbr)
-    .attr('color', 'black')
-    .attr('font-size', 15)
-
-    var ticked = () => {
-      circlesGroup.attr('cx', (data) => {
-              return data.x
-          })
-          .attr('cy', (data) => {
-              return data.y
-          });
+    
   
-      texts.attr('x', (data) => {
-              return data.x
-          })
-          .attr('y', (data) => {
-              return data.y
-          });
-  }
 
     // <text dx="427.16279069767444" dy="242.570281124498" r="20" fill="lightblue" opacity="1">SampleText</text>
 
