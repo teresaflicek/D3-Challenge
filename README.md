@@ -10,3 +10,7 @@ The data set included with the assignment is based on 2014 ACS 1-year estimates 
 
 ## Preview of Scatter Plot
 ![scatter plot displaying correlation between healthcare and poverty](D3_data_journalism/previewimage/d3scatterplot.png)
+
+
+
+[Link to Webpage!](https://teresaflicek.github.io/D3-Challenge/D3_data_journalism/index.html)
